@@ -1,0 +1,59 @@
+﻿<metadata>
+	<!---
+	With help of @brendanzagaeski and his Xamarin.Android bindings examples
+	https://gist.github.com/brendanzagaeski/9607158
+	https://gist.github.com/brendanzagaeski/69f490e31ca6a71136ff
+	https://gist.github.com/brendanzagaeski/3868e30b85a1feb1181b
+	https://gist.github.com/brendanzagaeski/9834034
+	-->
+
+	<!-- 
+	For some reason, bindings generator for two interfaces doesn't specify visibility.
+	Because of that C# part of the intefaces is not generated
+
+	/GoogleMapsUtilityBinding/obj/Debug/generated/src/Com.Google.Maps.Android.Geojson.GeoJsonLineStringStyle.cs(118,118): Error CS0234: The type or namespace name `IGeoJsonStyle' does not exist in the namespace `Com.Google.Maps.Android.Geojson'. Are you missing an assembly reference? (CS0234) (GoogleMapsUtilityBinding)
+	The workaround is to addjust visibility manually for these interfaces
+	-->
+	<attr path="/api/package[@name='com.google.maps.android.geojson']/interface[@name='GeoJsonStyle']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.google.maps.android.kml']/class[@name='KmlStyle']" name="visibility">public</attr>
+
+	<!-- 
+	Bindings generator doesn't resolve generics in interfaces very well.
+	/GoogleMapsUtilityBinding/obj/Debug/generated/src/Com.Google.Maps.Android.Kml.KmlLineString.cs(23,23): Error CS0738: `Com.Google.Maps.Android.Kml.KmlLineString' does not implement interface member `Com.Google.Maps.Android.Kml.IKmlGeometry.GeometryObject.get' and the best implementing candidate `Com.Google.Maps.Android.Kml.KmlLineString.GeometryObject.get' return type `System.Collections.Generic.IList<Android.Gms.Maps.Model.LatLng>' does not match interface member return type `Java.Lang.Object' (CS0738) (GoogleMapsUtilityBinding)
+	Particularly, interface IKmlGeometry is not generic, while return methods are generated in generic way.
+	Easiest workaround is to change return type of these methods on Java side to return just java.lang.Object
+	-->
+	<attr path="/api/package[@name='com.google.maps.android.kml']/class[@name='KmlLineString']/method[@name='getGeometryObject' and count(parameter)=0]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.google.maps.android.kml']/class[@name='KmlMultiGeometry']/method[@name='getGeometryObject' and count(parameter)=0]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.google.maps.android.kml']/class[@name='KmlPoint']/method[@name='getGeometryObject' and count(parameter)=0]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.google.maps.android.kml']/class[@name='KmlPolygon']/method[@name='getGeometryObject' and count(parameter)=0]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.google.maps.android.kml']/class[@name='KmlPolygon']/method[@name='getGeometryObject' and count(parameter)=0]" name="return">java.lang.Object</attr>
+
+	<!--
+	KmlLineString/KmlPoint/KmlPolygon classes have constant in Java GEOMETRY_TYPE. 
+	Automated bindings in Xamarin skip that constant because inherited interface KmlGeometry has property GeometryType.
+	BINDINGSGENERATOR:  warning BG8401: Skipping Com.Google.Maps.Android.Kml.KmlLineString.GeometryType, due to a duplicate field, method or nested type name.
+
+	We will go ahead and rename that constant so it has different name than the property.
+	-->
+	<attr path="/api/package[@name='com.google.maps.android.kml']/class[@name='KmlLineString']/field[@name='GEOMETRY_TYPE']" name="managedName">GEOMETRY_TYPE</attr>
+	<attr path="/api/package[@name='com.google.maps.android.kml']/class[@name='KmlPoint']/field[@name='GEOMETRY_TYPE']" name="managedName">GEOMETRY_TYPE</attr>
+	<attr path="/api/package[@name='com.google.maps.android.kml']/class[@name='KmlPolygon']/field[@name='GEOMETRY_TYPE']" name="managedName">GEOMETRY_TYPE</attr>
+
+	<!--
+	ClusterManager.ClusterTask has problem with binding
+	/GoogleMapsUtilityBinding/BINDINGSGENERATOR: Warning BG8701: Invalid return type java.util.Set<? extends com.google.maps.android.clustering.Cluster<T>> in method DoInBackground in managed type Com.Google.Maps.Android.Clustering.ClusterManager.ClusterTask. (BG8701) (GoogleMapsUtilityBinding)
+	But because it's private class, we will just remove it
+	-->
+	<remove-node path="/api/package[@name='com.google.maps.android.clustering']/class[@name='ClusterManager.ClusterTask']" />
+	<!--
+	Java classes
+	DefaultClusterRenderer.CreateMarkerTask
+	DefaultClusterRenderer.ViewModifier
+	have problem with binding
+	/GoogleMapsUtilityBinding/BINDINGSGENERATOR: Warning BG8801: Invalid parameter type com.google.maps.android.clustering.Cluster<T> in method CreateMarkerTask in managed type Com.Google.Maps.Android.Clustering.View.DefaultClusterRenderer.CreateMarkerTask. (BG8801) (GoogleMapsUtilityBinding)
+	But because these are private classes, we will just remove them
+	-->
+	<remove-node path="/api/package[@name='com.google.maps.android.clustering.view']/class[@name='DefaultClusterRenderer.CreateMarkerTask']" />
+	<remove-node path="/api/package[@name='com.google.maps.android.clustering.view']/class[@name='DefaultClusterRenderer.ViewModifier']" />
+</metadata>
