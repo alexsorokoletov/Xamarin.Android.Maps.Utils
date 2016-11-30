@@ -24,3 +24,6 @@ packages/*
 
 .DS_Store
 *.apk
+
+bin/
+obj/
