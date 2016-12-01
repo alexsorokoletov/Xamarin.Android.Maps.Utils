@@ -1,16 +1,37 @@
 # Xamarin.Android.Maps.Utils
-Xamarin (MonoDroid) bindings for [https://github.com/googlemaps/android-maps-utils](https://github.com/googlemaps/android-maps-utils)
+Xamarin.Android bindings for [https://github.com/googlemaps/android-maps-utils](https://github.com/googlemaps/android-maps-utils)
 
-Read about Android maps utils on official [Android maps utils website](http://googlemaps.github.io/android-maps-utils/)
+Samples and other information about Android Maps Utils on official [Android maps utils website](https://developers.google.com/maps/documentation/android-api/utility/)
 
-Clustering in Xamarin.Android app with customized markers:
+[Available as NuGet package](https://www.nuget.org/packages/Xamarin.Android.Maps.Utils) `Xamarin.Android.Maps.Utils`
+
+
+### Features
+
+1. Manage marker clusters 
+
+Screenshot from Xamarin.Android app with customized markers:
 
 <img src="Screenshots/clustering.png?raw=true" title="Clustering in Xamarin.Android app with customized markers" alt="Clustering in Xamarin.Android app with customized markers" width="184">
 
+2. Import GeoJSON onto your map
 
-If you want to use this library with another version of Play Services:
+3. Import KML onto your map
 
-Just remove Google Play services Nuget and references and add your own, like show here:
+4. Add heatmaps to your map
 
-<img src="Screenshots/using-with-different-versions.png?raw=true" 
-title="How to use this library with another version of Play Services" alt="How use this library with another version of Play Services" width="221">
+5. Customize markers via bubble icons
+
+6. Encode and decode polylines
+
+7. Calculate distances, areas and headings via spherical geometry
+
+
+#### Other information
+
+Compiled against googlemaps/android-maps-utils@3cba85f04a79095160015f62a8438eb76adbbe6f 
+
+Demo from [googlemaps/android-maps-utils repository](https://github.com/googlemaps/android-maps-utils):
+
+<p align="center"><img width="90%" vspace="20" src="https://cloud.githubusercontent.com/assets/1950036/6629704/f57bc6d8-c908-11e4-815a-0d909fe02f99.gif"></p>
+ 
