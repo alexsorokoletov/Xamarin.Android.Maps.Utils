@@ -1,5 +1,9 @@
 # Xamarin.Android.Maps.Utils
+
+[![NuGet Badge](https://buildstats.info/nuget/Xamarin.Android.Maps.Utils?includePreReleases=true)](https://www.nuget.org/packages/Xamarin.Android.Maps.Utils/)
+
 Xamarin.Android bindings for [https://github.com/googlemaps/android-maps-utils](https://github.com/googlemaps/android-maps-utils)
+
 
 Samples and other information about Android Maps Utils on official [Android maps utils website](https://developers.google.com/maps/documentation/android-api/utility/)
 
