@@ -33,7 +33,11 @@ Screenshot from Xamarin.Android app with customized markers:
 
 #### Other information
 
-Compiled against googlemaps/android-maps-utils@3cba85f04a79095160015f62a8438eb76adbbe6f 
+Version 0.5.0 is compiled against googlemaps/android-maps-utils@0.5 and Play Services 9.6.1
+
+Version 0.5.1-beta1 is compiled against googlemaps/android-maps-utils@efaceb7915570fdb9d156de335b14ad53d045ba4 and Play Services 9.6.1
+
+Version 0.5.1-beta2 is compiled against googlemaps/android-maps-utils@efaceb7915570fdb9d156de335b14ad53d045ba4 and Play Services 10.0.1
 
 Demo from [googlemaps/android-maps-utils repository](https://github.com/googlemaps/android-maps-utils):
 
