@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Xamarin.Android.Maps.Utils</id>
-    <version>0.4.4-beta1</version>
+    <version>0.5.0</version>
     <title>Xamarin.Android bindings for Android Maps Utils. </title>
     <authors>Alex Sorokoletov</authors>
     <owners>Alex Sorokoletov</owners>
@@ -11,7 +11,7 @@
     <description>Handy extensions to the Google Maps Android API. https://developers.google.com/maps/documentation/android-api/utility/
     </description>
     <releaseNotes>Updated references and google maps utils binary</releaseNotes>
-    <copyright>Copyright 2016</copyright>
+    <copyright>Copyright 2017</copyright>
     <tags>Google Maps Utils Xamarin Android Xamarin.Android</tags>
     <dependencies>
       <dependency id="Xamarin.GooglePlayServices.Maps" version="32.961.0" />

@@ -9,7 +9,7 @@
     <RootNamespace>GoogleMapsUtilityBinding</RootNamespace>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
     <AssemblyName>GoogleMapsUtilityBinding</AssemblyName>
     <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <ProductVersion>8.0.30703</ProductVersion>
@@ -86,7 +86,7 @@
     <TransformFile Include="Transforms\Metadata.xml" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\android-maps-utils-release_3cba85f04a79095160015f62a8438eb76adbbe6f.aar" />
+    <LibraryProjectZip Include="Jars\android-maps-utils-0.5.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <Import Project="packages\Xamarin.GooglePlayServices.Basement.32.961.0\build\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('packages\Xamarin.GooglePlayServices.Basement.32.961.0\build\Xamarin.GooglePlayServices.Basement.targets')" />

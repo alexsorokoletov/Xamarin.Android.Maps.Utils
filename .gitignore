@@ -27,3 +27,4 @@ packages/*
 
 bin/
 obj/
+*.nupkg
